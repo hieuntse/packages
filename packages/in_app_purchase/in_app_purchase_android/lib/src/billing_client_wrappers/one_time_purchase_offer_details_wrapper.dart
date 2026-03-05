@@ -12,6 +12,9 @@ class OneTimePurchaseOfferDetailsWrapper {
   /// Creates a [OneTimePurchaseOfferDetailsWrapper].
   const OneTimePurchaseOfferDetailsWrapper({
     required this.formattedPrice,
+    this.offerToken,
+    this.micros,
+    this.offerId,
     required this.priceAmountMicros,
     required this.priceCurrencyCode,
   });
@@ -34,6 +37,10 @@ class OneTimePurchaseOfferDetailsWrapper {
   /// code is "GBP".
   final String priceCurrencyCode;
 
+final String? offerToken;
+final int? micros;
+final String? offerId;
+
   @override
   bool operator ==(Object other) {
     if (other.runtimeType != runtimeType) {
@@ -43,7 +50,10 @@ class OneTimePurchaseOfferDetailsWrapper {
     return other is OneTimePurchaseOfferDetailsWrapper &&
         other.formattedPrice == formattedPrice &&
         other.priceAmountMicros == priceAmountMicros &&
-        other.priceCurrencyCode == priceCurrencyCode;
+        other.priceCurrencyCode == priceCurrencyCode &&
+        other.offerToken == offerToken &&
+        other.micros == micros &&
+        other.offerId == offerId;
   }
 
   @override
@@ -52,6 +62,9 @@ class OneTimePurchaseOfferDetailsWrapper {
       formattedPrice.hashCode,
       priceAmountMicros.hashCode,
       priceCurrencyCode.hashCode,
+      offerToken.hashCode,
+      micros.hashCode,
+      offerId.hashCode,
     );
   }
 }
